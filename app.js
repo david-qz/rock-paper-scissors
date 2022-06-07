@@ -38,6 +38,8 @@ const state = {
 // Game Display Component
 const playerThrowImg = document.getElementById('player-throw-image');
 const computerThrowImg = document.getElementById('computer-throw-image');
+const playerThrowLabel = document.getElementById('player-throw-label');
+const computerThrowLabel = document.getElementById('computer-throw-label');
 const gameMessage = document.getElementById('game-message');
 
 const imgMap = new Map();
@@ -47,9 +49,19 @@ imgMap.set(throws.scissors, 'assets/scissors.png');
 imgMap.set(null, 'assets/question.png');            // null and undefined mappings work,
 imgMap.set(undefined, 'assets/question.png');       // to my surprise.
 
+const labelMap = new Map();
+labelMap.set(throws.rock, 'Rock!');
+labelMap.set(throws.paper, 'Paper!');
+labelMap.set(throws.scissors, 'Scissors!');
+labelMap.set(null, '');
+labelMap.set(undefined, '');
+
 function displayGame() {
     playerThrowImg.src = imgMap.get(state.playerThrow);
     computerThrowImg.src = imgMap.get(state.computerThrow);
+
+    playerThrowLabel.textContent = labelMap.get(state.playerThrow);
+    computerThrowLabel.textContent = labelMap.get(state.computerThrow);
 
     switch (state.didWin) {
         case results.playerWin:

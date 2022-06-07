@@ -3,6 +3,7 @@
 :root {
     --background: rgb(63, 65, 68);
     --text-color: rgb(253, 253, 253);
+    --text-color-translucent: rgba(253, 253, 253, 0.7);
     --button-border-color: rgba(100, 100, 100, 0.5);
     --hover-color: rgba(255, 255, 255, 0.05);
 }
@@ -41,7 +42,7 @@ main {
     justify-content: space-around;
     align-items: center;
     border: 4px dashed rgb(37, 37, 37);
-    padding: 20px;
+    padding: 10px;
 }
 
 #game-section img {
@@ -52,7 +53,13 @@ main {
 #game-section p {
     font-size: 1.5em;
     text-transform: uppercase;
-    margin: 20px 0;
+    margin: 0 0 10px 0;
+}
+
+.image-label {
+    display:block;
+    color: var(--text-color-translucent);
+    margin-top: 5px;
 }
 
 #game-message {
