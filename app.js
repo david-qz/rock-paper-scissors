@@ -25,15 +25,6 @@ const state = {
 };
 
 // components
-    // component
-    // define and grab DOM elements
-    // display functions
-    // optional: subscribe to events
-        // event handlers - what needs to happen?
-        // logic and calculations
-        // state update
-        // re-display components (which ones?)
-    // optional: handle functions for shared event handler logic
 
 // Game Display Component
 const playerThrowImg = document.getElementById('player-throw-image');
@@ -78,6 +69,39 @@ function displayGame() {
             break;
     }
 }
+
+// Throw Selection Component
+const rockButton = document.getElementById('rock-button');
+const paperButton = document.getElementById('paper-button');
+const scissorsButton = document.getElementById('scissors-button');
+
+function handleButtonPress(playerThrow) {
+    state.playerThrow = playerThrow;
+    state.computerThrow = getRandomThrow();
+
+    state.totalRounds++;
+    const roundResult = state.didWin;
+    if (roundResult === results.playerWin) {
+        state.wonRounds++;
+    }
+    else if (roundResult === results.computerWin) {
+        state.lostRounds++;
+    }
+
+    displayGame();
+}
+
+rockButton.addEventListener('click', () => {
+    handleButtonPress(throws.rock);
+});
+
+paperButton.addEventListener('click', () => {
+    handleButtonPress(throws.paper);
+});
+
+scissorsButton.addEventListener('click', () => {
+    handleButtonPress(throws.scissors);
+});
 
 // page load actions
 displayGame();
