@@ -4,7 +4,7 @@
     --background: rgb(63, 65, 68);
     --text-color: rgb(253, 253, 253);
     --text-color-translucent: rgba(253, 253, 253, 0.7);
-    --button-border-color: rgba(100, 100, 100, 0.5);
+    --button-border-color: rgba(117, 117, 117, 0.6);
     --hover-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -22,7 +22,7 @@ h1 {
 
 button {
     background-color: rgba(0, 0, 0, 0);
-    border: 4px outset rgba(100, 100, 100, 0.5);
+    border: 4px outset var(--button-border-color);
 }
 
 button:active {
