@@ -56,6 +56,12 @@ main {
 
     #message-container {
         order: 4;
+        /*
+          I want to ensure that the flexbox container wraps when we reach this
+          width. This is kind of hacky but might work?
+        */
+        margin-left: 50px;
+        margin-right: 50px;
     }
 }
 
