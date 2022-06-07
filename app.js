@@ -89,6 +89,7 @@ function handleButtonPress(playerThrow) {
     }
 
     displayGame();
+    displayScoreboard();
 }
 
 rockButton.addEventListener('click', () => {
@@ -103,5 +104,22 @@ scissorsButton.addEventListener('click', () => {
     handleButtonPress(throws.scissors);
 });
 
+// Scoreboard component
+const winsDisplay = document.getElementById('wins-display');
+const drawsDisplay = document.getElementById('draws-display');
+const lossesDisplay = document.getElementById('losses-display');
+const winRateDisplay = document.getElementById('win-rate-display');
+
+function displayScoreboard() {
+    winsDisplay.textContent = state.wonRounds;
+    drawsDisplay.textContent = state.drawnRounds;
+    lossesDisplay.textContent = state.lostRounds;
+
+    let winRate = isNaN(state.winRate) ? 0 : state.winRate;
+    winRate = (winRate * 100).toFixed(1);
+    winRateDisplay.textContent = winRate;
+}
+
 // page load actions
 displayGame();
+displayScoreboard();
