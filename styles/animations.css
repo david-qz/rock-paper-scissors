@@ -1,0 +1,50 @@
+@keyframes attack {
+    from {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+    }
+
+    20% {
+        transform: matrix(1, 0, -0.2, 20, 0) rotate(2deg);
+    }
+
+    30% {
+        transform: matrix(1, 0, -0.2, 1, 60, 0) rotate(10deg);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+/*
+  The same as above but with a horizontal flip matrix applied first.
+  It would be great if we could apply the matrices additively in CSS,
+  but any change to the transform property will overwrite everything.
+*/
+@keyframes attack-flipped {
+    from {
+        transform: matrix(-1, 0, 0, 1, 0, 0)  matrix(1, 0, 0, 1, 0, 0);
+    }
+
+    20% {
+        transform: matrix(-1, 0, 0, 1, 0, 0) matrix(1, 0, -0.2, 20, 0) rotate(2deg);
+    }
+
+    30% {
+        transform: matrix(-1, 0, 0, 1, 0, 0) matrix(1, 0, -0.2, 1, 60, 0) rotate(10deg);
+    }
+
+    to {
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+    }
+}
+
+.attacking {
+    animation-name: attack;
+    animation-duration: 0.3s;
+}
+
+.attacking-flipped {
+    animation-name: attack-flipped;
+    animation-duration: 0.3s;
+}
