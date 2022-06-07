@@ -52,11 +52,21 @@ main {
 #game-section p {
     font-size: 1.5em;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 #game-message {
     text-decoration: underline;
+}
+
+@media (max-width: 450px) {
+    #game-section {
+        flex-flow: row wrap;
+    }
+
+    #message-container {
+        order: 4;
+    }
 }
 
 /*
