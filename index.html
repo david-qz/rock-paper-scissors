@@ -13,17 +13,41 @@
 </head>
 
 <body>
-    <header>
-        <img src="assets/html_css_js.png">
-        <h1>Web UI Project</h1>
-    </header>
-
     <main>
-
+        <h1>Rock, Paper, Scissors</h1>
+        <section id="game-section">
+            <div>
+                <p class="name" contenteditable="true">Player</p>
+                <img id="player-throw-image" src="assets/question.png">
+            </div>
+            <div>
+                <p id="game-message">Make a Throw!</p>
+            </div>
+            <div>
+                <p class="name">Computer</p>
+                <img id="computer-throw-image" src="assets/question.png">
+            </div>
+        </section>
+        <section id="input-section">
+            <button id="rock-button">
+                <img src="assets/rock.png" alt="Rock">
+            </button>
+            <button id="paper-button">
+                <img src="assets/paper.png" alt="Paper">
+            </button>
+            <button id="scissors-button">
+                <img src="assets/scissors.png" alt="Scissors">
+            </button>
+        </section>
+        <section id="scoreboard-section">
+            <ul class="row-list">
+                <li>Wins: <span id="wins-display">0</span></li>
+                <li>Draws: <span id="draws-display">0</span></li>
+                <li>Losses: <span id="losses-display">0</span></li>
+                <li>Win Rate: <span id="losses-display">0</span>%</li>
+            </ul>
+        </section>
     </main>
-
-    <footer>&copy;2021 Aspiring Software Developer</footer>
-
     <script type="module" src="app.js"></script>
 </body>
 
