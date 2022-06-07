@@ -66,6 +66,10 @@ main {
     text-decoration: underline;
 }
 
+.flipped {
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
 @media (max-width: 450px) {
     #game-section {
         flex-flow: row wrap;
