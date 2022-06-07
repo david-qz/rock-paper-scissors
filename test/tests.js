@@ -7,21 +7,25 @@ import {
 
 const test = QUnit.test;
 
-test('rock paper scissors scoring', (expect) => {
-    expect.equal(scoreRound(throws.rock, throws.rock), results.draw);
-    expect.equal(scoreRound(throws.rock, throws.paper), results.computerWin);
+test('scoring: player wins', (expect) => {
     expect.equal(scoreRound(throws.rock, throws.scissors), results.playerWin);
-
     expect.equal(scoreRound(throws.paper, throws.rock), results.playerWin);
-    expect.equal(scoreRound(throws.paper, throws.paper), results.draw);
-    expect.equal(scoreRound(throws.paper, throws.scissors), results.computerWin);
-
-    expect.equal(scoreRound(throws.scissors, throws.rock), results.computerWin);
     expect.equal(scoreRound(throws.scissors, throws.paper), results.playerWin);
+});
+
+test('scoring: computer wins', (expect) => {
+    expect.equal(scoreRound(throws.rock, throws.paper), results.computerWin);
+    expect.equal(scoreRound(throws.paper, throws.scissors), results.computerWin);
+    expect.equal(scoreRound(throws.scissors, throws.rock), results.computerWin);
+});
+
+test('scoring: draws', (expect) => {
+    expect.equal(scoreRound(throws.rock, throws.rock), results.draw);
+    expect.equal(scoreRound(throws.paper, throws.paper), results.draw);
     expect.equal(scoreRound(throws.scissors, throws.scissors), results.draw);
 });
 
-test('rock paper scissors random throw', (expect) => {
+test('random throw', (expect) => {
     const set = new Set();
     for (let i = 0; i < 100; i++) {
         set.add(getRandomThrow());
