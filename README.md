@@ -47,3 +47,7 @@ The buttons will have an event handler that will simulate the next round. The ha
 ### Page Load
 
 Call the display functions to load whatever initial state into the views.
+
+## Attribution
+
+Icons by [font awesome](https://fontawesome.com/).
