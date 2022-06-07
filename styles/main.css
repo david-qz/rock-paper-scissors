@@ -1,37 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
 
 :root {
-    --background: rgb(224, 234, 247);
-    --header-background: white;
-    --footer-background: rgb(243, 242, 242);
+    --background: rgb(63, 65, 68);
+    --text-color: rgb(253, 253, 253);
+    --button-border-color: rgba(100, 100, 100, 0.5);
+    --hover-color: rgba(255, 255, 255, 0.05);
 }
 
 body {
     height: 100%;
-    padding-bottom: 30px;
     font-family: 'Rubik', san-serif;
     background-color: var(--background);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px 0;
 }
 
-header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
-    background-color: var(--header-background);
+h1 {
+    margin: 0;
 }
 
 main {
-    padding: 15px;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px;
+/*
+    REGION: game display
+*/
+
+#game-section {
+    width: 95%;
+    max-width: 800px;
     display: flex;
-    justify-content: flex-end;
-    background-color: var(--footer-background);
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border: 4px dashed rgb(37, 37, 37);
+    padding: 20px;
+}
+
+#game-section img {
+    width: 25vw;
+    max-width: 250px;
+}
+
+#game-section p {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+#game-message {
+    text-decoration: underline;
+}
+
+/*
+    REGION: input
+*/
+
+button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 4px outset rgba(100, 100, 100, 0.5);
+    padding: 10px;
+    margin: 10px;
+}
+
+button:active {
+    border: 4px inset var(--button-border-color);
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
+
+button img {
+    width: 15vw;
+    max-width: 150px;
+    -webkit-user-drag: none;
+}
+
+/*
+    REGION: scoreboard
+*/
+
+.row-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.row-list > li {
+    margin: 0 10px;
+}
+
+#scoreboard-section {
+    font-size: 1.4em;
 }
