@@ -6,6 +6,9 @@ import {
     scoreRound,
 } from '../utils.js';
 
+// constants
+const animationDuration = 300;
+
 // state
 const state = {
     playerThrow: null,
@@ -47,6 +50,11 @@ labelMap.set(throws.scissors, 'Scissors!');
 labelMap.set(null, '');
 labelMap.set(undefined, '');
 
+function clearTimeout() {
+    playerThrowImg.classList.remove('attacking');
+    computerThrowImg.classList.remove('attacking-flipped');
+}
+
 function displayGame() {
     playerThrowImg.src = imgMap.get(state.playerThrow);
     computerThrowImg.src = imgMap.get(state.computerThrow);
@@ -58,9 +66,11 @@ function displayGame() {
 
     switch (state.didWin) {
         case results.playerWin:
+            playerThrowImg.classList.add('attacking');
             gameMessage.textContent = 'You Won!';
             break;
         case results.computerWin:
+            computerThrowImg.classList.add('attacking-flipped');
             gameMessage.textContent = 'You Lost!';
             break;
         case results.draw:
@@ -70,12 +80,26 @@ function displayGame() {
             gameMessage.textContent = 'Make a Throw!';
             break;
     }
+
+    setTimeout(clearTimeout, animationDuration);
 }
 
 // Throw Selection Component
 const rockButton = document.getElementById('rock-button');
 const paperButton = document.getElementById('paper-button');
 const scissorsButton = document.getElementById('scissors-button');
+
+function disableButtons() {
+    rockButton.disabled = true;
+    paperButton.disabled = true;
+    scissorsButton.disabled = true;
+}
+
+function enableButtons() {
+    rockButton.disabled = false;
+    paperButton.disabled = false;
+    scissorsButton.disabled = false;
+}
 
 function handleButtonPress(playerThrow) {
     state.playerThrow = playerThrow;
@@ -89,6 +113,10 @@ function handleButtonPress(playerThrow) {
     else if (roundResult === results.computerWin) {
         state.lostRounds++;
     }
+
+    disableButtons();
+    // The small buffer is to make sure the animation class is actually cleared.
+    setTimeout(enableButtons, animationDuration + 20);
 
     displayGame();
     displayScoreboard();
