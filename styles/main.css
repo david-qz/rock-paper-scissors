@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
-@import url('animations.css');
 
 :root {
     --background: rgb(63, 65, 68);
@@ -10,7 +9,6 @@
 }
 
 body {
-    height: 100%;
     font-family: 'Rubik', san-serif;
     background-color: var(--background);
     color: var(--text-color);
@@ -22,74 +20,9 @@ h1 {
     margin: 0;
 }
 
-main {
-    height: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    align-items: center;
-    justify-items: center;
-}
-
-/*
-    REGION: game display
-*/
-
-#game-section {
-    width: 95%;
-    max-width: 800px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-    align-items: center;
-    border: 4px dashed rgb(37, 37, 37);
-    padding: 10px;
-}
-
-#game-section img {
-    width: 25vw;
-    max-width: 250px;
-}
-
-#game-section p {
-    font-size: 1.5em;
-    text-transform: uppercase;
-    margin: 0 0 10px 0;
-}
-
-.image-label {
-    display:block;
-    color: var(--text-color-translucent);
-    margin-top: 5px;
-}
-
-#game-message {
-    text-decoration: underline;
-}
-
-.flipped {
-    transform: matrix(-1, 0, 0, 1, 0, 0);
-}
-
-@media (max-width: 450px) {
-    #game-section {
-        flex-flow: row wrap;
-    }
-
-    #message-container {
-        order: 4;
-    }
-}
-
-/*
-    REGION: input
-*/
-
 button {
     background-color: rgba(0, 0, 0, 0);
     border: 4px outset rgba(100, 100, 100, 0.5);
-    padding: 10px;
-    margin: 10px;
 }
 
 button:active {
@@ -105,16 +38,6 @@ button:disabled {
     background-color: rgb(0, 0, 0, 0);
 }
 
-button img {
-    width: 15vw;
-    max-width: 150px;
-    -webkit-user-drag: none;
-}
-
-/*
-    REGION: scoreboard
-*/
-
 .row-list {
     display: flex;
     flex-flow: row wrap;
@@ -123,8 +46,4 @@ button img {
 
 .row-list > li {
     margin: 0 10px;
-}
-
-#scoreboard-section {
-    font-size: 1.4em;
 }
