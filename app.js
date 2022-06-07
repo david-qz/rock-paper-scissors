@@ -51,6 +51,8 @@ function displayGame() {
     playerThrowImg.src = imgMap.get(state.playerThrow);
     computerThrowImg.src = imgMap.get(state.computerThrow);
 
+    computerThrowImg.classList.toggle('flipped', state.computerThrow);
+
     playerThrowLabel.textContent = labelMap.get(state.playerThrow);
     computerThrowLabel.textContent = labelMap.get(state.computerThrow);
 
