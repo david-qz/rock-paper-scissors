@@ -1,26 +1,16 @@
 export const throws = {
-    get rock() {
-        return 'rock';
-    },
-    get paper() {
-        return 'paper';
-    },
-    get scissors() {
-        return 'scissors';
-    },
+    rock: 'rock',
+    paper: 'paper',
+    scissors: 'scissors',
 };
+Object.freeze(throws);
 
 export const results = {
-    get playerWin() {
-        return 'player';
-    },
-    get computerWin() {
-        return 'computer';
-    },
-    get draw() {
-        return 'draw';
-    }
+    playerWin: 'player',
+    computerWin: 'computer',
+    draw: 'draw',
 };
+Object.freeze(results);
 
 const throwsArray = [throws.rock, throws.paper, throws.scissors];
 

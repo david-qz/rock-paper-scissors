@@ -43,11 +43,6 @@ test('random throw', (expect) => {
 });
 
 test('throws and results immutability', (expect) => {
-    let mutatedRock = throws.rock;
-    mutatedRock += 'oops';
-    expect.notEqual(throws.rock, mutatedRock);
-
-    let mutatedDraw = results.draw;
-    mutatedDraw += 'did it again';
-    expect.notEqual(results.draw, mutatedDraw);
+    expect.throws(() => throws.rock = 'oops');
+    expect.throws(() => results.draw = 'oops');
 });
